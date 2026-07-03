@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pack Artisan — BotArmory | Site + Marketing Automatisé</title>
+<style>
+:root{--bg:#060606;--s:#0d0d0d;--s2:#141414;--t:#e8e8e8;--t2:#999;--t3:#666;--a:#d4a853;--a2:#e8c97a;--b:rgba(255,255,255,0.05);--r:10px;--green:#2ecc71}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--t);line-height:1.6;-webkit-font-smoothing:antialiased}
+.container{max-width:1100px;margin:0 auto;padding:0 2rem}
+section{padding:5rem 0}
+h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;line-height:1.15;margin-bottom:1.5rem}
+h1 span{color:var(--a)}
+h2{font-size:2rem;font-weight:700;margin-bottom:1rem;text-align:center}
+h2 span{color:var(--a)}
+h3{font-size:1.2rem;font-weight:700;margin-bottom:0.5rem}
+.subtitle{font-size:1.15rem;color:var(--t2);max-width:650px;margin-bottom:2rem}
+.badge{display:inline-block;padding:5px 14px;border:1px solid rgba(212,168,83,0.3);border-radius:20px;font-size:0.8rem;color:var(--a);letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem}
+
+/* HERO */
+.hero{min-height:90vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 30%,rgba(212,168,83,0.08),transparent 60%),radial-gradient(ellipse at 30% 70%,rgba(212,168,83,0.04),transparent 50%)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.price-tag{background:var(--a);color:#060606;display:inline-block;padding:8px 24px;border-radius:6px;font-weight:800;font-size:1.5rem;margin:1.5rem 0}
+.price-tag small{font-size:0.8rem;opacity:0.7}
+.stats-row{display:flex;gap:2rem;margin-top:2rem}
+.stat{text-align:center}
+.stat-num{font-size:1.8rem;font-weight:800;color:var(--a)}
+.stat-lbl{font-size:0.8rem;color:var(--t3)}
+
+/* CARDS */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.card{background:var(--s2);border:1px solid var(--b);border-radius:var(--r);padding:2rem;transition:all 0.3s}
+.card:hover{border-color:rgba(212,168,83,0.2);transform:translateY(-4px)}
+.card-icon{font-size:2rem;margin-bottom:1rem}
+.card h3{margin-bottom:0.75rem}
+.card p{color:var(--t2);font-size:0.95rem;line-height:1.7}
+.card .tag{display:inline-block;margin-top:1rem;padding:3px 10px;border-radius:4px;font-size:0.75rem;font-weight:600}
+.tag-free{background:rgba(46,204,113,0.15);color:var(--green)}
+.tag-auto{background:rgba(212,168,83,0.15);color:var(--a)}
+
+/* TIMELINE */
+.timeline{max-width:700px;margin:3rem auto}
+.tl-item{display:grid;grid-template-columns:30px 1fr;gap:1.5rem;padding:1.5rem 0;border-bottom:1px solid var(--b)}
+.tl-num{width:30px;height:30px;border-radius:50%;background:var(--a);color:#060606;text-align:center;line-height:30px;font-weight:800;font-size:0.85rem}
+.tl-content h4{font-size:1rem;margin-bottom:0.25rem}
+.tl-content p{color:var(--t2);font-size:0.9rem}
+
+/* TABLE */
+.table-wrap{overflow-x:auto;margin:2rem 0}
+table{width:100%;border-collapse:collapse}
+th{background:var(--a);color:#060606;padding:12px 16px;text-align:left;font-size:0.85rem;font-weight:700}
+td{padding:12px 16px;border-bottom:1px solid var(--b);font-size:0.9rem}
+tr:last-child td{font-weight:700;color:var(--a);border-bottom:2px solid var(--a)}
+.highlight-row td{background:rgba(212,168,83,0.08)}
+
+/* CTA */
+.cta-section{text-align:center;padding:4rem 2rem;background:linear-gradient(135deg,var(--s),var(--bg));border-radius:var(--r);margin:3rem 0;border:1px solid rgba(212,168,83,0.15)}
+.cta-section h2{margin-bottom:1rem}
+.cta-section p{color:var(--t2);margin-bottom:2rem}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 36px;font-size:1.05rem;font-weight:700;text-decoration:none;border-radius:8px;transition:all 0.3s;border:none;cursor:pointer}
+.btn-gold{background:var(--a);color:#060606}
+.btn-gold:hover{background:var(--a2);transform:translateY(-2px);box-shadow:0 12px 40px rgba(212,168,83,0.25)}
+.btn-outline{border:1.5px solid rgba(255,255,255,0.2);color:var(--t);margin-left:1rem}
+.btn-outline:hover{border-color:var(--a);color:var(--a)}
+
+/* GUARANTEE */
+.guarantee{display:flex;align-items:center;gap:1rem;padding:1.5rem;background:rgba(46,204,113,0.08);border:1px solid rgba(46,204,113,0.2);border-radius:var(--r);margin:2rem 0}
+.guarantee-icon{font-size:1.5rem}
+.guarantee p{color:var(--t2);font-size:0.95rem}
+.guarantee strong{color:var(--green)}
+
+@media(max-width:768px){
+  .hero-grid{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}
+  .stats-row{flex-wrap:wrap;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge">Pack Artisan — BotArmory</div>
+      <h1>Un site web <span>qui trouve des clients</span> tout seul</h1>
+      <p class="subtitle">Site vitrine premium + stratégie marketing automatisée + posts réseaux sociaux générés chaque semaine. Vous n'avez plus qu'à répondre au téléphone.</p>
+      <div class="price-tag">À partir de 1 500€ <small>+ 49€/mois</small></div>
+      <div class="stats-row">
+        <div class="stat"><div class="stat-num">5-12</div><div class="stat-lbl">nouveaux clients/mois</div></div>
+        <div class="stat"><div class="stat-num">15h</div><div class="stat-lbl">de marketing économisées</div></div>
+        <div class="stat"><div class="stat-num">0€</div><div class="stat-lbl">de pub nécessaire</div></div>
+      </div>
+    </div>
+    <div style="background:var(--s2);border-radius:var(--r);padding:2rem;border:1px solid var(--b);text-align:center">
+      <div style="font-size:3rem;margin-bottom:1rem">🪚</div>
+      <h3 style="color:var(--a)">Votre site clé en main</h3>
+      <p style="color:var(--t2);margin-bottom:1rem">Design premium, 30+ photos de vos réalisations, formulaire de contact, bouton WhatsApp, référencement Google optimisé.</p>
+      <p style="font-size:0.8rem;color:var(--t3)">Exemple : sabois.fr → livré en 48h</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CE QUE VOUS RECEVEZ ═══════════ -->
+<section style="background:var(--s)">
+  <div class="container">
+    <div class="badge" style="display:block;text-align:center">Ce que vous recevez</div>
+    <h2>Un système complet,<br><span>pas juste un site</span></h2>
+    <p style="text-align:center;color:var(--t2);max-width:600px;margin:0 auto 3rem">La plupart des agences vous vendent un site et disparaissent. Nous, on vous donne une machine à clients qui tourne toute seule.</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🌐</div>
+        <h3>Site vitrine premium</h3>
+        <p>4 pages, 30+ photos de vos chantiers, design moderne, responsive mobile, formulaire de contact, bouton WhatsApp, référencement Google (schema.org, SEO local).</p>
+        <div class="tag tag-auto">Livré en 48h</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">📈</div>
+        <h3>Marketing automatisé</h3>
+        <p>Chaque semaine : 1 post Instagram + 1 post Google My Business prêts à copier-coller. Chaque mois : 1 article de blog SEO. Des pages par ville générées automatiquement.</p>
+        <div class="tag tag-auto">100% automatique</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <h3>Stratégie d'acquisition</h3>
+        <p>Plan détaillé : Google My Business, SEO local, Instagram, LinkedIn, partenariats architectes, marchés publics. Tout est documenté, rien n'est laissé au hasard.</p>
+        <div class="tag tag-free">Offert avec le pack</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ COMMENT ÇA MARCHE ═══════════ -->
+<section>
+  <div class="container">
+    <h2>Comment <span>ça marche</span></h2>
+    <p style="text-align:center;color:var(--t2);margin-bottom:3rem">10 minutes par semaine suffisent. Tout le reste est automatisé.</p>
+    
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-num">1</div>
+        <div class="tl-content">
+          <h4>On crée votre site en 48h</h4>
+          <p>Vous nous envoyez vos photos, on s'occupe de tout. Design premium, SEO optimisé, formulaire de contact. Vous validez, on publie.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-num">2</div>
+        <div class="tl-content">
+          <h4>Google My Business — configuré</h4>
+          <p>On crée et optimise votre fiche Google. 30 photos, description, horaires, zone d'intervention. Vous apparaissez dans les résultats locaux.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-num">3</div>
+        <div class="tl-content">
+          <h4>Chaque lundi — vos posts arrivent</h4>
+          <p>Vous recevez un post Instagram et un post Google prêts à copier-coller. Photos réelles de vos chantiers, légendes pro, hashtags ciblés.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-num">4</div>
+        <div class="tl-content">
+          <h4>Le site grossit tout seul</h4>
+          <p>Chaque semaine, une nouvelle page pour une ville où vous intervenez. Chaque mois, un article de blog qui attire des clients sur Google.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-num">5</div>
+        <div class="tl-content">
+          <h4>Les clients appellent</h4>
+          <p>Google vous référence, vos posts attirent, votre site rassure. Vous n'avez plus qu'à décrocher le téléphone et signer des devis.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ RÉSULTATS ═══════════ -->
+<section style="background:var(--s)">
+  <div class="container">
+    <h2>Combien de clients <span>en plus ?</span></h2>
+    <p style="text-align:center;color:var(--t2);margin-bottom:3rem">Estimations réalistes basées sur des artisans similaires dans les Yvelines.</p>
+
+    <div class="table-wrap">
+      <table>
+        <tr><th>Levier</th><th>Clients/mois</th><th>Panier moyen</th><th>Revenu estimé</th></tr>
+        <tr><td>Google My Business</td><td>3-5</td><td>3 000€ - 15 000€</td><td>9 000€ - 75 000€</td></tr>
+        <tr><td>SEO local + pages ville</td><td>1-2</td><td>3 000€ - 10 000€</td><td>3 000€ - 20 000€</td></tr>
+        <tr><td>Instagram + LinkedIn</td><td>0,5-1</td><td>3 000€ - 8 000€</td><td>1 500€ - 8 000€</td></tr>
+        <tr><td>Partenariats architectes</td><td>1-2</td><td>5 000€ - 25 000€</td><td>5 000€ - 50 000€</td></tr>
+        <tr class="highlight-row"><td><strong>Total estimé</strong></td><td><strong>5-10</strong></td><td></td><td><strong>18 500€ - 153 000€/mois</strong></td></tr>
+      </table>
+    </div>
+
+    <div class="guarantee">
+      <div class="guarantee-icon">🛡️</div>
+      <div>
+        <p><strong>Garanti :</strong> Si après 3 mois vous n'avez pas eu au moins 3 nouveaux contacts qualifiés via le site ou Google, on vous rembourse l'abonnement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TARIF ═══════════ -->
+<section>
+  <div class="container" style="max-width:750px">
+    <h2>L'investissement</h2>
+    <p style="text-align:center;color:var(--t2);margin-bottom:3rem">Un seul paiement pour la création, un petit abonnement pour l'automatisation.</p>
+
+    <div class="table-wrap">
+      <table>
+        <tr><th>Élément</th><th>Une fois</th><th>Par mois</th></tr>
+        <tr><td>Site vitrine 4 pages (design, SEO, photos)</td><td style="color:var(--a);font-weight:700">1 500€</td><td>—</td></tr>
+        <tr><td>Google My Business (création + optimisation)</td><td>Inclus</td><td>—</td></tr>
+        <tr><td>Stratégie d'acquisition (document complet)</td><td>Inclus</td><td>—</td></tr>
+        <tr><td>Posts Instagram + GMB (1/semaine)</td><td>—</td><td style="color:var(--a);font-weight:700">29€</td></tr>
+        <tr><td>Pages ville SEO (1/semaine)</td><td>—</td><td>Inclus</td></tr>
+        <tr><td>Article blog SEO (1/mois)</td><td>—</td><td>Inclus</td></tr>
+        <tr><td>Dashboard pour tout gérer en 10 min</td><td>Inclus</td><td>Inclus</td></tr>
+        <tr style="background:rgba(212,168,83,0.1)"><td><strong>TOTAL</strong></td><td><strong>1 500€</strong></td><td><strong>29€/mois</strong></td></tr>
+      </table>
+    </div>
+
+    <div class="cta-section" style="margin-top:3rem">
+      <h2>Prêt à remplir votre carnet de commandes ?</h2>
+      <p>On crée votre site en 48h. Vous commencez à recevoir des clients la semaine suivante.</p>
+      <div>
+        <a href="mailto:mariuslagrue@lgmartisanat.com?subject=Pack%20Artisan%20—%20Je%20veux%20un%20site" class="btn btn-gold">💬 Commander mon pack</a>
+        <a href="https://ml123455.github.io/sabois/" class="btn btn-outline">Voir un exemple</a>
+      </div>
+      <p style="margin-top:1.5rem;font-size:0.85rem;color:var(--t3)">Paiement à la livraison. Abonnement sans engagement. Résiliable à tout moment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer style="text-align:center;padding:2rem;color:var(--t3);font-size:0.85rem;border-top:1px solid var(--b)">
+  BotArmory — Sites web qui trouvent des clients pour les artisans<br>
+  Contact : mariuslagrue@lgmartisanat.com
+</footer>
+
+</body>
+</html>
