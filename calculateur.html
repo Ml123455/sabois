@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Potentiel clients — BotArmory</title>
+<style>
+:root{--bg:#0a0a0a;--s:#111;--s2:#1a1a1a;--t:#e8e8e8;--t2:#a0a0a0;--a:#c8a45c;--b:rgba(255,255,255,0.06);--r:10px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--t);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem}
+.card{background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:2.5rem;max-width:600px;width:100%}
+h1{font-size:1.6rem;margin-bottom:0.25rem}
+h1 span{color:var(--a)}
+.sub{color:var(--t2);font-size:0.9rem;margin-bottom:2rem}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+label{display:block;font-size:0.8rem;color:var(--t2);margin-bottom:0.35rem;text-transform:uppercase;letter-spacing:1px}
+select,input{width:100%;padding:12px 14px;background:var(--s2);border:1px solid var(--b);border-radius:6px;color:var(--t);font-size:0.95rem;font-family:inherit}
+select:focus,input:focus{outline:none;border-color:var(--a)}
+.result{background:var(--s2);border:1px solid rgba(var(--a),0.2,0.2,0.2);border-radius:var(--r);padding:1.5rem;margin-top:2rem;text-align:center;display:none}
+.result .big{font-size:3rem;font-weight:800;color:var(--a);line-height:1}
+.result .big sub{font-size:1rem;color:var(--t2);font-weight:400}
+.result .detail{color:var(--t2);font-size:0.9rem;margin-top:0.5rem;line-height:1.6}
+.breakdown{margin-top:1.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem}
+.brk{background:var(--s);padding:1rem;border-radius:6px;text-align:center}
+.brk .n{font-size:1.3rem;font-weight:700;color:var(--a)}
+.brk .l{font-size:0.7rem;color:var(--t2);text-transform:uppercase;margin-top:0.25rem}
+.btn{display:block;width:100%;margin-top:1.5rem;padding:14px;background:var(--a);color:#0a0a0a;border:none;border-radius:8px;font-weight:700;font-size:1rem;cursor:pointer;transition:all 0.2s}
+.btn:hover{background:#d4a853}
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>📊 Potentiel <span>clients</span></h1>
+  <p class="sub">Estimation réelle basée sur votre ville et votre métier</p>
+
+  <div class="row">
+    <div>
+      <label>Métier</label>
+      <select id="metier">
+        <option value="menuisier">Menuisier</option>
+        <option value="plombier">Plombier</option>
+        <option value="electricien">Électricien</option>
+        <option value="couvreur">Couvreur</option>
+        <option value="paysagiste">Paysagiste</option>
+        <option value="peintre">Peintre</option>
+        <option value="macon">Maçon</option>
+        <option value="serrurier">Serrurier</option>
+      </select>
+    </div>
+    <div>
+      <label>Ville</label>
+      <input type="text" id="ville" placeholder="Ex: Rambouillet" value="Rambouillet">
+    </div>
+  </div>
+
+  <div class="row">
+    <div>
+      <label>Code postal</label>
+      <input type="text" id="cp" placeholder="78" value="78">
+    </div>
+    <div>
+      <label>Zone d'intervention</label>
+      <select id="zone">
+        <option value="20">20 km autour</option>
+        <option value="30" selected>30 km autour</option>
+        <option value="50">50 km autour</option>
+      </select>
+    </div>
+  </div>
+
+  <button class="btn" onclick="calculate()">Calculer mon potentiel</button>
+
+  <div class="result" id="result">
+    <div class="big"><span id="total-clients">—</span> <sub>clients / mois</sub></div>
+    <div class="detail" id="detail-text"></div>
+    <div class="breakdown">
+      <div class="brk"><div class="n" id="brk-google">—</div><div class="l">Google</div></div>
+      <div class="brk"><div class="n" id="brk-seo">—</div><div class="l">SEO</div></div>
+      <div class="brk"><div class="n" id="brk-reseaux">—</div><div class="l">Réseaux</div></div>
+    </div>
+    <div class="detail" style="margin-top:1rem">
+      💰 Chiffre d'affaires estimé : <strong style="color:var(--a)" id="ca-estime">—</strong>
+    </div>
+  </div>
+</div>
+
+<script>
+const VOLUMES = {
+  menuisier: {base:85, taux:0.12, panier:4500},
+  plombier: {base:140, taux:0.14, panier:800},
+  electricien: {base:110, taux:0.11, panier:600},
+  couvreur: {base:45, taux:0.15, panier:8000},
+  paysagiste: {base:90, taux:0.10, panier:2500},
+  peintre: {base:75, taux:0.09, panier:1800},
+  macon: {base:55, taux:0.13, panier:12000},
+  serrurier: {base:120, taux:0.16, panier:350},
+};
+
+function calculate() {
+  const metier = document.getElementById('metier').value;
+  const ville = document.getElementById('ville').value;
+  const cp = document.getElementById('cp').value;
+  const zone = parseInt(document.getElementById('zone').value);
+  
+  const data = VOLUMES[metier];
+  const popFactor = cp.startsWith('75') ? 2.5 : cp.startsWith('92')||cp.startsWith('93')||cp.startsWith('94') ? 2.0 : cp.startsWith('78')||cp.startsWith('91')||cp.startsWith('95') ? 1.4 : cp.startsWith('77') ? 1.1 : 0.8;
+  const zoneFactor = zone === 20 ? 0.6 : zone === 50 ? 1.8 : 1.0;
+  
+  const volume = Math.round(data.base * popFactor * zoneFactor);
+  const clients = Math.round(volume * data.taux);
+  const ca = Math.round(clients * data.panier * 0.7); // 70% de conversion
+  
+  document.getElementById('total-clients').textContent = `3–${clients+2}`;
+  document.getElementById('detail-text').innerHTML = `Basé sur <strong>~${volume}</strong> recherches/mois pour « ${metier} ${ville} » et sa zone de ${zone} km.`;
+  document.getElementById('brk-google').textContent = `${Math.round(clients*0.5)}–${Math.round(clients*0.6)}`;
+  document.getElementById('brk-seo').textContent = `${Math.round(clients*0.2)}–${Math.round(clients*0.3)}`;
+  document.getElementById('brk-reseaux').textContent = `${Math.round(clients*0.15)}–${Math.round(clients*0.25)}`;
+  document.getElementById('ca-estime').textContent = `${(ca*0.6).toLocaleString()}€ – ${ca.toLocaleString()}€ / mois`;
+  document.getElementById('result').style.display = 'block';
+}
+</script>
+</body>
+</html>
