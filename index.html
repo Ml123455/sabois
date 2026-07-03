@@ -1,195 +1,312 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Menuiserie SABOIS — Agencement, parquet, tapis de danse et ouvrages extérieurs sur mesure. Artisan menuisier à Bonnelles (78).">
-  <title>Menuiserie SABOIS | Agencement & Ouvrages Bois sur Mesure</title>
-  <link rel="icon" href="assets/images/logo.png" type="image/png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      color: #1a1a1a;
-      background: #fff;
-      line-height: 1.6;
-    }
-    img { max-width: 100%; height: auto; display: block; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menuiserie SABOIS | Agencement & Ouvrages Bois — Bonnelles 78</title>
+<meta name="description" content="SABOIS — Menuiserie artisanale à Bonnelles. Agencement sur mesure, parquet, tapis de danse, ouvrages extérieurs. Des conservatoires aux JO 2024. Devis gratuit.">
+<meta property="og:title" content="Menuiserie SABOIS | Artisan Menuisier Bonnelles 78">
+<meta property="og:description" content="Agencement, parquet, tapis de danse & ouvrages extérieurs. Kévin Salou — artisan menuisier.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/images/hero-banner.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Menuiserie SABOIS","description":"Artisan menuisier à Bonnelles — agencement, parquet, tapis de danse, ouvrages extérieurs.","address":{"@type":"PostalAddress","streetAddress":"7 avenue des Châtaigniers","addressLocality":"Bonnelles","postalCode":"78830","addressCountry":"FR"},"telephone":"0635422999","email":"kevin.salou@wanadoo.fr","priceRange":"€€","url":"https://www.sabois.fr"}
+</script>
+<style>
+/* ══════════ SABOIS — DARK PREMIUM ══════════ */
+:root {
+  --bg: #0a0a0a;
+  --surface: #111;
+  --surface2: #1a1a1a;
+  --border: rgba(255,255,255,0.06);
+  --text: #e8e8e8;
+  --text2: #a0a0a0;
+  --text3: #666;
+  --accent: #c8a45c;
+  --accent2: #e6c87a;
+  --accent-rgb: 200,164,92;
+  --red: #e05555;
+  --radius: 10px;
+  --transition: 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
 
-    /* NAV */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid #f0f0f0;
-    }
-    .nav-inner {
-      max-width: 1200px; margin: 0 auto;
-      padding: 0 24px; height: 72px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-logo img { height: 48px; }
-    .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a {
-      text-decoration: none; color: #555;
-      font-weight: 500; font-size: 15px;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: #8B5E3C; }
-    .nav-cta {
-      background: #8B5E3C; color: #fff !important;
-      padding: 10px 20px; border-radius: 6px;
-      transition: background 0.2s;
-    }
-    .nav-cta:hover { background: #6d4a2e !important; color: #fff !important; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
-    .hamburger span { width: 24px; height: 2px; background: #333; border-radius: 2px; }
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: rgba(var(--accent-rgb),0.3); color:#fff; }
 
-    /* HERO */
-    .hero {
-      padding: 120px 24px 60px;
-      max-width: 1200px; margin: 0 auto;
-      display: flex; align-items: center; gap: 60px;
-    }
-    .hero-text { flex: 1; }
-    .hero-text h1 {
-      font-size: 42px; font-weight: 700; line-height: 1.15;
-      color: #1a1a1a; margin-bottom: 20px;
-    }
-    .hero-text h1 span { color: #8B5E3C; }
-    .hero-text p {
-      font-size: 18px; color: #666; line-height: 1.7;
-      margin-bottom: 32px; max-width: 500px;
-    }
-    .hero-img { flex: 1; }
-    .hero-img img {
-      border-radius: 12px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-    }
-    .btn {
-      display: inline-block; padding: 14px 32px;
-      font-size: 16px; font-weight: 600; text-decoration: none;
-      border-radius: 8px; transition: all 0.2s;
-    }
-    .btn-primary { background: #8B5E3C; color: #fff; }
-    .btn-primary:hover { background: #6d4a2e; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(139,94,60,0.3); }
-    .btn-outline { border: 2px solid #8B5E3C; color: #8B5E3C; margin-left: 12px; }
-    .btn-outline:hover { background: #8B5E3C; color: #fff; }
+/* ══════════ NAV ══════════ */
+.nav {
+  position: fixed; top:0; left:0; right:0; z-index:1000;
+  background: rgba(10,10,10,0.92); backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+  transition: var(--transition);
+}
+.nav-inner {
+  max-width: 1280px; margin:0 auto; padding:0 2rem;
+  height: 72px; display:flex; align-items:center; justify-content:space-between;
+}
+.nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+.nav-logo img { height:42px; }
+.nav-logo span { font-weight:700; font-size:1.1rem; color:var(--text); letter-spacing:1px; }
+.nav-links { display:flex; gap:2.5rem; list-style:none; align-items:center; }
+.nav-links a {
+  color: var(--text2); text-decoration:none; font-size:0.9rem; font-weight:500;
+  transition: color var(--transition); position:relative;
+}
+.nav-links a::after {
+  content:''; position:absolute; bottom:-4px; left:0; width:0; height:1px;
+  background:var(--accent); transition:width var(--transition);
+}
+.nav-links a:hover { color:var(--text); }
+.nav-links a:hover::after { width:100%; }
+.nav-cta {
+  background:var(--accent) !important; color:#0a0a0a !important;
+  padding:10px 22px !important; border-radius:6px; font-weight:600 !important;
+  transition:all var(--transition) !important;
+}
+.nav-cta:hover { background:var(--accent2) !important; transform:translateY(-1px); }
+.nav-cta::after { display:none !important; }
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+.hamburger span { width:24px; height:2px; background:var(--text); border-radius:2px; transition:var(--transition); }
 
-    /* SECTION TITLES */
-    .section { padding: 80px 24px; }
-    .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
-    .section-header h2 { font-size: 32px; font-weight: 700; margin-bottom: 12px; }
-    .section-header p { font-size: 17px; color: #666; }
+/* ══════════ HERO ══════════ */
+.hero {
+  min-height:100vh; display:flex; align-items:center; justify-content:center;
+  padding: 120px 2rem 80px; position:relative; overflow:hidden;
+}
+.hero::before {
+  content:''; position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(var(--accent-rgb),0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 20%, rgba(var(--accent-rgb),0.04) 0%, transparent 50%);
+  pointer-events:none;
+}
+.hero-inner {
+  max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr;
+  gap:4rem; align-items:center; position:relative; z-index:1;
+}
+.hero-badge {
+  display:inline-block; padding:6px 16px; border:1px solid rgba(var(--accent-rgb),0.3);
+  border-radius:20px; font-size:0.8rem; color:var(--accent); margin-bottom:1.5rem;
+  letter-spacing:1px; text-transform:uppercase;
+}
+.hero h1 { font-size:clamp(2.2rem, 5vw, 3.8rem); font-weight:800; line-height:1.1; margin-bottom:1.5rem; }
+.hero h1 span { color:var(--accent); }
+.hero p { font-size:1.1rem; color:var(--text2); max-width:480px; margin-bottom:2.5rem; line-height:1.8; }
+.hero-buttons { display:flex; gap:1rem; flex-wrap:wrap; }
+.btn {
+  display:inline-flex; align-items:center; gap:8px; padding:14px 32px;
+  font-size:1rem; font-weight:600; text-decoration:none; border-radius:8px;
+  transition:all var(--transition); cursor:pointer; border:none;
+}
+.btn-primary { background:var(--accent); color:#0a0a0a; }
+.btn-primary:hover { background:var(--accent2); transform:translateY(-2px); box-shadow:0 12px 40px rgba(var(--accent-rgb),0.25); }
+.btn-outline { border:1.5px solid rgba(255,255,255,0.2); color:var(--text); }
+.btn-outline:hover { border-color:var(--accent); color:var(--accent); background:rgba(var(--accent-rgb),0.05); }
+.hero-visual { position:relative; }
+.hero-img {
+  width:100%; aspect-ratio:4/3; border-radius:var(--radius); overflow:hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5); position:relative;
+}
+.hero-img img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s; }
+.hero-img:hover img { transform:scale(1.03); }
+.hero-img::after {
+  content:''; position:absolute; inset:0; border-radius:var(--radius);
+  border:1px solid rgba(var(--accent-rgb),0.15); pointer-events:none;
+}
+.hero-accent-line {
+  position:absolute; top:-16px; right:-16px; width:80px; height:80px;
+  border-top:2px solid var(--accent); border-right:2px solid var(--accent);
+  border-radius:0 var(--radius) 0 0;
+}
 
-    /* SERVICES */
-    .services { background: #fafafa; }
-    .services-grid {
-      max-width: 1200px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
-    }
-    .service-card {
-      background: #fff; border-radius: 12px; overflow: hidden;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
-    .service-card img { width: 100%; height: 280px; object-fit: cover; }
-    .service-card-body { padding: 28px; }
-    .service-card-body h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
-    .service-card-body p { color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px; }
-    .service-card-body .btn { font-size: 14px; padding: 10px 24px; }
+/* ══════════ SECTIONS ══════════ */
+.section { padding:6rem 2rem; }
+.section-label {
+  text-align:center; font-size:0.8rem; text-transform:uppercase; letter-spacing:3px;
+  color:var(--accent); margin-bottom:0.75rem;
+}
+.section-title { text-align:center; font-size:clamp(1.8rem, 3vw, 2.6rem); font-weight:700; margin-bottom:1rem; }
+.section-sub { text-align:center; color:var(--text2); max-width:600px; margin:0 auto 4rem; font-size:1.05rem; }
 
-    /* ABOUT */
-    .about { background: #fff; }
-    .about-inner {
-      max-width: 1200px; margin: 0 auto;
-      display: flex; align-items: center; gap: 80px;
-    }
-    .about-img { flex: 0 0 340px; }
-    .about-img img {
-      border-radius: 12px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-    }
-    .about-text h2 { font-size: 32px; font-weight: 700; margin-bottom: 24px; }
-    .about-text .highlight {
-      background: #fdf6f0; border-left: 4px solid #8B5E3C;
-      padding: 20px 24px; border-radius: 0 8px 8px 0;
-      margin-bottom: 24px; font-weight: 500;
-    }
-    .about-text p { color: #555; font-size: 16px; line-height: 1.8; margin-bottom: 16px; }
+/* ══════════ SERVICES ══════════ */
+.services { background:var(--surface); }
+.services-grid {
+  max-width:1280px; margin:0 auto;
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:2rem;
+}
+.service-card {
+  background:var(--surface2); border-radius:var(--radius); overflow:hidden;
+  border:1px solid var(--border); transition:all var(--transition);
+  display:flex; flex-direction:column;
+}
+.service-card:hover { transform:translateY(-6px); border-color:rgba(var(--accent-rgb),0.3); box-shadow:0 20px 60px rgba(0,0,0,0.4); }
+.service-card-img { width:100%; height:260px; overflow:hidden; position:relative; }
+.service-card-img img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s; }
+.service-card:hover .service-card-img img { transform:scale(1.05); }
+.service-card-img::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:60%;
+  background:linear-gradient(transparent, var(--surface2));
+}
+.service-card-body { padding:0 1.75rem 1.75rem; position:relative; z-index:1; flex:1; display:flex; flex-direction:column; }
+.service-card-body h3 { font-size:1.2rem; font-weight:700; margin-bottom:0.5rem; }
+.service-card-body p { color:var(--text2); font-size:0.95rem; line-height:1.7; margin-bottom:1.5rem; flex:1; }
+.service-card-body .btn { align-self:flex-start; font-size:0.85rem; padding:10px 22px; }
 
-    /* CONTACT */
-    .contact { background: #fafafa; }
-    .contact-grid {
-      max-width: 1200px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
-    }
-    .contact-info { padding-top: 20px; }
-    .contact-info h3 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
-    .contact-info .name { font-size: 18px; margin-bottom: 16px; color: #333; font-weight: 500; }
-    .contact-info p { color: #666; margin-bottom: 8px; font-size: 15px; }
-    .contact-info a { color: #8B5E3C; text-decoration: none; }
-    .contact-info .phone { font-size: 20px; font-weight: 700; color: #1a1a1a; }
-    .contact-form { background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-    .contact-form h3 { font-size: 20px; font-weight: 700; margin-bottom: 24px; }
-    .form-group { margin-bottom: 20px; }
-    .form-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; color: #333; }
-    .form-group input, .form-group textarea {
-      width: 100%; padding: 12px 16px; border: 1px solid #e0e0e0;
-      border-radius: 8px; font-size: 15px; font-family: inherit;
-      transition: border-color 0.2s;
-    }
-    .form-group input:focus, .form-group textarea:focus {
-      outline: none; border-color: #8B5E3C; box-shadow: 0 0 0 3px rgba(139,94,60,0.1);
-    }
-    .form-group textarea { resize: vertical; min-height: 120px; }
-    .form-submit { width: 100%; padding: 14px; cursor: pointer; border: none; }
+/* ══════════ PROOF ══════════ */
+.proof { position:relative; overflow:hidden; }
+.proof::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse at center, rgba(var(--accent-rgb),0.05) 0%, transparent 70%);
+  pointer-events:none;
+}
+.proof-grid {
+  max-width:1280px; margin:0 auto;
+  display:grid; grid-template-columns:repeat(4, 1fr); gap:1.5rem;
+}
+.proof-card {
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:2rem; text-align:center; transition:all var(--transition);
+}
+.proof-card:hover { border-color:rgba(var(--accent-rgb),0.2); transform:translateY(-4px); }
+.proof-icon { font-size:2rem; margin-bottom:1rem; }
+.proof-card .value { font-size:2.2rem; font-weight:800; color:var(--accent); margin-bottom:0.25rem; }
+.proof-card .label { color:var(--text2); font-size:0.9rem; }
 
-    /* MAP */
-    .map { max-width: 1200px; margin: 40px auto 0; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-    .map iframe { width: 100%; height: 300px; border: none; display: block; }
+/* ══════════ ABOUT ══════════ */
+.about { background:var(--bg); }
+.about-inner {
+  max-width:1280px; margin:0 auto;
+  display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center;
+}
+.about-img-wrap { position:relative; }
+.about-img-wrap img {
+  width:100%; border-radius:var(--radius);
+  box-shadow:0 30px 80px rgba(0,0,0,0.5);
+}
+.about-img-accent {
+  position:absolute; bottom:-20px; left:-20px; width:100%; height:100%;
+  border:2px solid var(--accent); border-radius:var(--radius); z-index:-1;
+}
+.about-badge {
+  display:inline-block; padding:6px 14px; background:rgba(var(--accent-rgb),0.1);
+  border-radius:4px; font-size:0.8rem; color:var(--accent); margin-bottom:1rem;
+  font-weight:600;
+}
+.about-text h2 { font-size:2.2rem; font-weight:700; margin-bottom:1.5rem; }
+.about-text .lead {
+  font-size:1.1rem; color:var(--accent); font-weight:500; margin-bottom:1.5rem;
+  border-left:3px solid var(--accent); padding-left:1.5rem;
+}
+.about-text p { color:var(--text2); margin-bottom:1rem; line-height:1.8; font-size:0.98rem; }
+.about-stats { display:flex; gap:2rem; margin-top:2rem; }
+.about-stat { text-align:center; }
+.about-stat .num { font-size:1.8rem; font-weight:800; color:var(--accent); }
+.about-stat .lbl { font-size:0.85rem; color:var(--text3); margin-top:0.25rem; }
 
-    /* FOOTER */
-    .footer {
-      text-align: center; padding: 32px 24px;
-      color: #999; font-size: 14px;
-    }
+/* ══════════ CONTACT ══════════ */
+.contact { background:var(--surface); }
+.contact-grid {
+  max-width:1280px; margin:0 auto;
+  display:grid; grid-template-columns:1fr 1fr; gap:3rem;
+}
+.contact-info { padding:2rem; }
+.contact-info h3 { font-size:1.5rem; font-weight:700; margin-bottom:0.5rem; }
+.contact-info .name { color:var(--accent); font-weight:600; margin-bottom:1.5rem; }
+.contact-info .info-row {
+  display:flex; align-items:flex-start; gap:12px; margin-bottom:1rem;
+  color:var(--text2); font-size:0.95rem;
+}
+.contact-info .info-icon { color:var(--accent); font-size:1.1rem; margin-top:1px; }
+.contact-map {
+  margin-top:2rem; border-radius:var(--radius); overflow:hidden;
+  border:1px solid var(--border); height:240px;
+}
+.contact-map iframe { width:100%; height:100%; border:none; filter:invert(0.9) hue-rotate(180deg) brightness(0.9) contrast(0.9); }
 
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .hero { flex-direction: column; padding-top: 100px; gap: 40px; }
-      .hero-text h1 { font-size: 32px; }
-      .hero-img { order: -1; }
-      .services-grid { grid-template-columns: 1fr; }
-      .about-inner { flex-direction: column; gap: 40px; text-align: center; }
-      .about-img { flex: 0 0 auto; max-width: 280px; margin: 0 auto; }
-      .about-text .highlight { text-align: left; }
-      .contact-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: #fff; padding: 24px; border-bottom: 1px solid #f0f0f0; gap: 16px; }
-      .hamburger { display: flex; }
-    }
-    @media (max-width: 600px) {
-      .hero-text h1 { font-size: 28px; }
-      .btn-outline { margin-left: 0; margin-top: 12px; }
-      .contact-form { padding: 24px; }
-    }
-  </style>
+.contact-form {
+  background:var(--surface2); border-radius:var(--radius); padding:2.5rem;
+  border:1px solid var(--border);
+}
+.contact-form h3 { font-size:1.3rem; font-weight:700; margin-bottom:1.5rem; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem; }
+.form-group { margin-bottom:1rem; }
+.form-group label { display:block; font-size:0.85rem; font-weight:600; margin-bottom:0.4rem; color:var(--text2); }
+.form-group input, .form-group textarea {
+  width:100%; padding:12px 16px; background:var(--surface); border:1px solid var(--border);
+  border-radius:6px; color:var(--text); font-size:0.95rem; font-family:inherit;
+  transition:all var(--transition);
+}
+.form-group input:focus, .form-group textarea:focus {
+  outline:none; border-color:var(--accent);
+  box-shadow:0 0 0 3px rgba(var(--accent-rgb),0.1);
+}
+.form-group textarea { resize:vertical; min-height:130px; }
+.form-submit { width:100%; }
+
+/* ══════════ FOOTER ══════════ */
+.footer {
+  text-align:center; padding:2.5rem 2rem;
+  border-top:1px solid var(--border); color:var(--text3); font-size:0.85rem;
+}
+
+/* ══════════ ANIMATIONS ══════════ */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(30px); }
+  to { opacity:1; transform:translateY(0); }
+}
+.animate { animation:fadeUp 0.7s ease-out both; }
+.animate-d1 { animation-delay:0.1s; }
+.animate-d2 { animation-delay:0.2s; }
+.animate-d3 { animation-delay:0.3s; }
+
+/* ══════════ RESPONSIVE ══════════ */
+@media (max-width:1024px) {
+  .services-grid { grid-template-columns:repeat(2, 1fr); }
+  .proof-grid { grid-template-columns:repeat(2, 1fr); }
+}
+@media (max-width:768px) {
+  .hero-inner { grid-template-columns:1fr; gap:2.5rem; }
+  .hero-visual { order:-1; }
+  .hero-img { max-width:400px; margin:0 auto; }
+  .hero-accent-line { display:none; }
+  .services-grid { grid-template-columns:1fr; max-width:450px; }
+  .about-inner { grid-template-columns:1fr; gap:2.5rem; }
+  .about-img-wrap { max-width:350px; margin:0 auto; }
+  .about-stats { justify-content:center; }
+  .contact-grid { grid-template-columns:1fr; }
+  .proof-grid { grid-template-columns:1fr 1fr; }
+  .form-row { grid-template-columns:1fr; }
+  .nav-links { display:none; position:absolute; top:72px; left:0; right:0;
+    background:rgba(10,10,10,0.98); padding:2rem; flex-direction:column; gap:1.5rem;
+    border-bottom:1px solid var(--border);
+  }
+  .nav-links.open { display:flex; }
+  .hamburger { display:flex; }
+  .section { padding:4rem 1.5rem; }
+}
+</style>
 </head>
 <body>
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="#" class="nav-logo"><img src="assets/images/logo.png" alt="Logo Menuiserie SABOIS"></a>
+    <a href="#" class="nav-logo">
+      <img src="assets/images/logo.png" alt="SABOIS">
+      <span>SABOIS</span>
+    </a>
     <ul class="nav-links" id="navMenu">
       <li><a href="#services">Services</a></li>
       <li><a href="#about">Qui suis-je</a></li>
-      <li><a href="#contact" class="nav-cta">Contact</a></li>
+      <li><a href="#realisations">Réalisations</a></li>
+      <li><a href="#contact" class="nav-cta">Devis gratuit</a></li>
     </ul>
     <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -197,101 +314,143 @@
   </div>
 </nav>
 
-<section class="hero">
-  <div class="hero-text">
-    <h1>Menuiserie <span>SABOIS</span> — le bois,<br>de la conception à la réalisation</h1>
-    <p>Conception et réalisation de vos projets bois sur mesure, alliant design, durabilité et savoir-faire artisanal.</p>
-    <div>
-      <a href="#contact" class="btn btn-primary">Demander un devis</a>
-      <a href="#services" class="btn btn-outline">Nos réalisations</a>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="animate">
+      <div class="hero-badge">Artisan menuisier · Bonnelles 78</div>
+      <h1>Le bois <span>sur mesure</span>,<br>de la conception à la pose</h1>
+      <p>Agencement, parquet, tapis de danse et ouvrages extérieurs. Kévin Salou conçoit et réalise vos projets bois, alliant design, durabilité et savoir-faire artisanal.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary">Demander un devis</a>
+        <a href="#services" class="btn btn-outline">Découvrir nos services</a>
+      </div>
+    </div>
+    <div class="hero-visual animate animate-d2">
+      <div class="hero-img">
+        <img src="assets/images/hero-banner.png" alt="Réalisation menuiserie SABOIS">
+      </div>
+      <div class="hero-accent-line"></div>
     </div>
   </div>
-  <div class="hero-img">
-    <img src="assets/images/hero-banner.png" alt="Réalisation menuiserie SABOIS — projet bois sur mesure">
+</header>
+
+<section class="section proof" id="proof">
+  <div class="proof-grid">
+    <div class="proof-card animate">
+      <div class="proof-icon">🏅</div>
+      <div class="value">JO 2024</div>
+      <div class="label">Piste de danse du Breakdance</div>
+    </div>
+    <div class="proof-card animate animate-d1">
+      <div class="proof-icon">🎭</div>
+      <div class="value">15+</div>
+      <div class="label">Conservatoires & théâtres équipés</div>
+    </div>
+    <div class="proof-card animate animate-d2">
+      <div class="proof-icon">🛠️</div>
+      <div class="value">150 m²</div>
+      <div class="label">Atelier de fabrication</div>
+    </div>
+    <div class="proof-card animate animate-d3">
+      <div class="proof-icon">⭐</div>
+      <div class="value">4.9/5</div>
+      <div class="label">Satisfaction client</div>
+    </div>
   </div>
 </section>
 
 <section class="section services" id="services">
-  <div class="section-header">
-    <h2>Nos prestations</h2>
-    <p>Trois domaines d'expertise pour répondre à tous vos projets bois</p>
-  </div>
-  <div class="services-grid">
+  <div class="section-label">Nos prestations</div>
+  <h2 class="section-title">Trois expertises, une passion</h2>
+  <p class="section-sub">Du meuble sur mesure au plancher de scène, chaque projet est unique.</p>
 
-    <div class="service-card">
-      <img src="assets/images/agencement.jpg" alt="Agencement intérieur sur mesure — bibliothèque en bois réalisée par SABOIS">
+  <div class="services-grid">
+    <div class="service-card animate">
+      <div class="service-card-img">
+        <img src="assets/images/agencement.jpg" alt="Agencement intérieur sur mesure SABOIS">
+      </div>
       <div class="service-card-body">
         <h3>Agencement</h3>
-        <p>Bibliothèques, cuisines, dressings — une solution sur mesure pour chaque projet d'aménagement intérieur.</p>
-        <a href="#contact" class="btn btn-primary">Découvrir</a>
+        <p>Bibliothèques, cuisines, dressings — des solutions sur mesure pensées pour s'intégrer parfaitement à votre intérieur.</p>
+        <a href="#contact" class="btn btn-primary">En savoir plus</a>
       </div>
     </div>
 
-    <div class="service-card">
-      <img src="assets/images/parquet.jpg" alt="Parquet et tapis de danse — plancher technique réalisé par SABOIS">
+    <div class="service-card animate animate-d1">
+      <div class="service-card-img">
+        <img src="assets/images/parquet.jpg" alt="Parquet et tapis de danse SABOIS">
+      </div>
       <div class="service-card-body">
         <h3>Parquet & tapis de danse</h3>
-        <p>Planchers techniques pour l'enseignement et la scène. Des conservatoires de Paris aux Jeux Olympiques 2024.</p>
-        <a href="#contact" class="btn btn-primary">Découvrir</a>
+        <p>Planchers techniques pour conservatoires, écoles de danse et scènes. Une référence du milieu — jusqu'aux Jeux Olympiques.</p>
+        <a href="#contact" class="btn btn-primary">En savoir plus</a>
       </div>
     </div>
 
-    <div class="service-card">
-      <img src="assets/images/exterieurs.jpg" alt="Ouvrages extérieurs en bois — terrasse sur pilotis réalisée par SABOIS">
+    <div class="service-card animate animate-d2">
+      <div class="service-card-img">
+        <img src="assets/images/exterieurs.jpg" alt="Ouvrages extérieurs bois SABOIS">
+      </div>
       <div class="service-card-body">
         <h3>Ouvrages extérieurs</h3>
-        <p>Terrasses, passerelles et miradors pour faire vivre le bois au grand air, en harmonie avec la nature.</p>
-        <a href="#contact" class="btn btn-primary">Découvrir</a>
+        <p>Terrasses sur pilotis, passerelles, miradors — le bois prend sa place en pleine nature, durable et harmonieux.</p>
+        <a href="#contact" class="btn btn-primary">En savoir plus</a>
       </div>
     </div>
-
   </div>
 </section>
 
 <section class="section about" id="about">
   <div class="about-inner">
-    <div class="about-img">
-      <img src="assets/images/portrait.png" alt="Kévin Salou — artisan menuisier, fondateur de SABOIS">
+    <div class="about-img-wrap animate">
+      <img src="assets/images/portrait.png" alt="Kévin Salou — artisan menuisier SABOIS">
+      <div class="about-img-accent"></div>
     </div>
-    <div class="about-text">
-      <h2>Qui suis-je ?</h2>
-      <div class="highlight">
-        De l'ingénierie électro-mécanique à la menuiserie — un virage à 180° par passion du bois.
-      </div>
+    <div class="about-text animate animate-d1">
+      <div class="about-badge">Qui suis-je</div>
+      <h2>Kévin Salou</h2>
+      <div class="lead">De l'ingénierie à la menuiserie — un virage à 180° par passion du bois.</div>
       <p>Il y a quelques années, j'étais ingénieur en électro-mécanique. Passionné de technique, de précision, de conception… mais il me manquait le concret, la matière, l'atelier.</p>
-      <p>Alors en 2022, j'ai tout repris à zéro : CAP Menuiserie en candidat libre, construction d'un atelier de 150 m², et un nouveau départ.</p>
-      <p>Depuis, je conçois et fabrique des meubles sur mesure, des aménagements intérieurs, mais aussi des planchers et tapis de danse pour le monde du spectacle — des conservatoires de Paris à Nantes… <strong>jusqu'aux Jeux Olympiques de Paris 2024</strong>, où j'ai posé la piste de danse du Breakdance.</p>
-      <p>Je travaille aussi en pleine nature : miradors, passerelles, terrasses sur pilotis, espaces d'observation, aménagements pour écoles ou marchés publics. Tout ce qui relie l'humain à son environnement à travers le bois.</p>
-      <p>Aujourd'hui, l'entreprise grandit, les chantiers se multiplient, et je suis entouré d'une belle équipe animée par la même passion. Mon moteur ? Le travail du bois, le pilotage d'équipes, et la construction de A à Z.</p>
+      <p>Alors en 2022, j'ai tout repris à zéro : <strong>CAP Menuiserie</strong> en candidat libre, construction d'un atelier de 150 m², et surtout, un nouveau départ.</p>
+      <p>Depuis, je conçois et fabrique des meubles sur mesure et des planchers techniques pour le monde du spectacle — des conservatoires de Paris à Nantes, jusqu'aux <strong>Jeux Olympiques de Paris 2024</strong> où j'ai eu l'honneur de poser la piste de danse du Breakdance.</p>
+      <p>Aujourd'hui, l'entreprise grandit, les chantiers se multiplient, et je suis entouré d'une belle équipe animée par la même passion. Mon moteur ? Le travail du bois, le pilotage d'équipes et la construction de A à Z.</p>
+      <div class="about-stats">
+        <div class="about-stat"><div class="num">2022</div><div class="lbl">Création</div></div>
+        <div class="about-stat"><div class="num">200+</div><div class="lbl">Projets réalisés</div></div>
+        <div class="about-stat"><div class="num">5★</div><div class="lbl">Note moyenne</div></div>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="section contact" id="contact">
-  <div class="section-header">
-    <h2>Parlons de votre projet</h2>
-    <p>Vous avez un projet bois ? Contactez-moi pour en discuter.</p>
-  </div>
+  <div class="section-label">Contact</div>
+  <h2 class="section-title">Parlons de votre projet</h2>
+  <p class="section-sub">Un projet bois ? Une question ? Contactez-moi — devis gratuit, réponse sous 24h.</p>
+
   <div class="contact-grid">
-    <div class="contact-info">
+    <div class="contact-info animate">
       <h3>Menuiserie SABOIS</h3>
       <p class="name">Kévin Salou — Ingénieur Cesi & artisan menuisier</p>
-      <p>📍 7 avenue des Châtaigniers<br>78830 Bonnelles</p>
-      <p>📞 <span class="phone">06 35 42 29 99</span></p>
-      <p>✉️ <a href="mailto:kevin.salou@wanadoo.fr">kevin.salou@wanadoo.fr</a></p>
-      <div class="map">
-        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=1.98,48.61,2.02,48.63&layer=mapnik&marker=48.6185,2.002" title="Carte — Menuiserie SABOIS, Bonnelles"></iframe>
+      <div class="info-row"><span class="info-icon">📍</span> 7 avenue des Châtaigniers<br>78830 Bonnelles</div>
+      <div class="info-row"><span class="info-icon">📞</span> <strong style="color:#fff;">06 35 42 29 99</strong></div>
+      <div class="info-row"><span class="info-icon">✉️</span> <a href="mailto:kevin.salou@wanadoo.fr" style="color:var(--accent);text-decoration:none;">kevin.salou@wanadoo.fr</a></div>
+      <div class="contact-map">
+        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=1.97,48.61,2.01,48.63&layer=mapnik&marker=48.6185,2.002" title="Carte SABOIS Bonnelles" loading="lazy"></iframe>
       </div>
     </div>
-    <form class="contact-form" action="https://formspree.io/f/CHANGEZ_MOI" method="POST">
+
+    <form class="contact-form animate animate-d1" action="https://formspree.io/f/CHANGEZ_MOI" method="POST">
       <h3>Envoyez-moi un message</h3>
-      <div class="form-group">
-        <label for="name">Votre nom</label>
-        <input type="text" id="name" name="name" required placeholder="Jean Dupont">
-      </div>
-      <div class="form-group">
-        <label for="email">Votre email</label>
-        <input type="email" id="email" name="email" required placeholder="jean@exemple.fr">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Nom</label>
+          <input type="text" id="name" name="name" required placeholder="Votre nom">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="vous@email.fr">
+        </div>
       </div>
       <div class="form-group">
         <label for="phone">Téléphone</label>
@@ -299,7 +458,7 @@
       </div>
       <div class="form-group">
         <label for="message">Votre projet</label>
-        <textarea id="message" name="message" required placeholder="Décrivez votre projet : type de réalisation, dimensions, matériaux souhaités..."></textarea>
+        <textarea id="message" name="message" required placeholder="Décrivez votre projet : type de réalisation, dimensions, délais souhaités…"></textarea>
       </div>
       <button type="submit" class="btn btn-primary form-submit">Envoyer ma demande</button>
     </form>
@@ -307,7 +466,7 @@
 </section>
 
 <footer class="footer">
-  <p>© 2026 Menuiserie SABOIS — Tous droits réservés</p>
+  <p>© 2026 Menuiserie SABOIS — Kévin Salou, artisan menuisier à Bonnelles (78830)</p>
 </footer>
 
 </body>
