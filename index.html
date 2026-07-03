@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Menuiserie SABOIS — Agencement, parquet, tapis de danse et ouvrages extérieurs sur mesure. Artisan menuisier à Bonnelles (78).">
+  <title>Menuiserie SABOIS | Agencement & Ouvrages Bois sur Mesure</title>
+  <link rel="icon" href="assets/images/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1a1a1a;
+      background: #fff;
+      line-height: 1.6;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* NAV */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 24px; height: 72px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo img { height: 48px; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: #555;
+      font-weight: 500; font-size: 15px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #8B5E3C; }
+    .nav-cta {
+      background: #8B5E3C; color: #fff !important;
+      padding: 10px 20px; border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #6d4a2e !important; color: #fff !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
+    .hamburger span { width: 24px; height: 2px; background: #333; border-radius: 2px; }
+
+    /* HERO */
+    .hero {
+      padding: 120px 24px 60px;
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; gap: 60px;
+    }
+    .hero-text { flex: 1; }
+    .hero-text h1 {
+      font-size: 42px; font-weight: 700; line-height: 1.15;
+      color: #1a1a1a; margin-bottom: 20px;
+    }
+    .hero-text h1 span { color: #8B5E3C; }
+    .hero-text p {
+      font-size: 18px; color: #666; line-height: 1.7;
+      margin-bottom: 32px; max-width: 500px;
+    }
+    .hero-img { flex: 1; }
+    .hero-img img {
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    }
+    .btn {
+      display: inline-block; padding: 14px 32px;
+      font-size: 16px; font-weight: 600; text-decoration: none;
+      border-radius: 8px; transition: all 0.2s;
+    }
+    .btn-primary { background: #8B5E3C; color: #fff; }
+    .btn-primary:hover { background: #6d4a2e; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(139,94,60,0.3); }
+    .btn-outline { border: 2px solid #8B5E3C; color: #8B5E3C; margin-left: 12px; }
+    .btn-outline:hover { background: #8B5E3C; color: #fff; }
+
+    /* SECTION TITLES */
+    .section { padding: 80px 24px; }
+    .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
+    .section-header h2 { font-size: 32px; font-weight: 700; margin-bottom: 12px; }
+    .section-header p { font-size: 17px; color: #666; }
+
+    /* SERVICES */
+    .services { background: #fafafa; }
+    .services-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+    }
+    .service-card {
+      background: #fff; border-radius: 12px; overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
+    .service-card img { width: 100%; height: 280px; object-fit: cover; }
+    .service-card-body { padding: 28px; }
+    .service-card-body h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .service-card-body p { color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px; }
+    .service-card-body .btn { font-size: 14px; padding: 10px 24px; }
+
+    /* ABOUT */
+    .about { background: #fff; }
+    .about-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; gap: 80px;
+    }
+    .about-img { flex: 0 0 340px; }
+    .about-img img {
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    }
+    .about-text h2 { font-size: 32px; font-weight: 700; margin-bottom: 24px; }
+    .about-text .highlight {
+      background: #fdf6f0; border-left: 4px solid #8B5E3C;
+      padding: 20px 24px; border-radius: 0 8px 8px 0;
+      margin-bottom: 24px; font-weight: 500;
+    }
+    .about-text p { color: #555; font-size: 16px; line-height: 1.8; margin-bottom: 16px; }
+
+    /* CONTACT */
+    .contact { background: #fafafa; }
+    .contact-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+    }
+    .contact-info { padding-top: 20px; }
+    .contact-info h3 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+    .contact-info .name { font-size: 18px; margin-bottom: 16px; color: #333; font-weight: 500; }
+    .contact-info p { color: #666; margin-bottom: 8px; font-size: 15px; }
+    .contact-info a { color: #8B5E3C; text-decoration: none; }
+    .contact-info .phone { font-size: 20px; font-weight: 700; color: #1a1a1a; }
+    .contact-form { background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .contact-form h3 { font-size: 20px; font-weight: 700; margin-bottom: 24px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; color: #333; }
+    .form-group input, .form-group textarea {
+      width: 100%; padding: 12px 16px; border: 1px solid #e0e0e0;
+      border-radius: 8px; font-size: 15px; font-family: inherit;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none; border-color: #8B5E3C; box-shadow: 0 0 0 3px rgba(139,94,60,0.1);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-submit { width: 100%; padding: 14px; cursor: pointer; border: none; }
+
+    /* MAP */
+    .map { max-width: 1200px; margin: 40px auto 0; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .map iframe { width: 100%; height: 300px; border: none; display: block; }
+
+    /* FOOTER */
+    .footer {
+      text-align: center; padding: 32px 24px;
+      color: #999; font-size: 14px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero { flex-direction: column; padding-top: 100px; gap: 40px; }
+      .hero-text h1 { font-size: 32px; }
+      .hero-img { order: -1; }
+      .services-grid { grid-template-columns: 1fr; }
+      .about-inner { flex-direction: column; gap: 40px; text-align: center; }
+      .about-img { flex: 0 0 auto; max-width: 280px; margin: 0 auto; }
+      .about-text .highlight { text-align: left; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: #fff; padding: 24px; border-bottom: 1px solid #f0f0f0; gap: 16px; }
+      .hamburger { display: flex; }
+    }
+    @media (max-width: 600px) {
+      .hero-text h1 { font-size: 28px; }
+      .btn-outline { margin-left: 0; margin-top: 12px; }
+      .contact-form { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><img src="assets/images/logo.png" alt="Logo Menuiserie SABOIS"></a>
+    <ul class="nav-links" id="navMenu">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">Qui suis-je</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+    <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>Menuiserie <span>SABOIS</span> — le bois,<br>de la conception à la réalisation</h1>
+    <p>Conception et réalisation de vos projets bois sur mesure, alliant design, durabilité et savoir-faire artisanal.</p>
+    <div>
+      <a href="#contact" class="btn btn-primary">Demander un devis</a>
+      <a href="#services" class="btn btn-outline">Nos réalisations</a>
+    </div>
+  </div>
+  <div class="hero-img">
+    <img src="assets/images/hero-banner.png" alt="Réalisation menuiserie SABOIS — projet bois sur mesure">
+  </div>
+</section>
+
+<section class="section services" id="services">
+  <div class="section-header">
+    <h2>Nos prestations</h2>
+    <p>Trois domaines d'expertise pour répondre à tous vos projets bois</p>
+  </div>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <img src="assets/images/agencement.jpg" alt="Agencement intérieur sur mesure — bibliothèque en bois réalisée par SABOIS">
+      <div class="service-card-body">
+        <h3>Agencement</h3>
+        <p>Bibliothèques, cuisines, dressings — une solution sur mesure pour chaque projet d'aménagement intérieur.</p>
+        <a href="#contact" class="btn btn-primary">Découvrir</a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img src="assets/images/parquet.jpg" alt="Parquet et tapis de danse — plancher technique réalisé par SABOIS">
+      <div class="service-card-body">
+        <h3>Parquet & tapis de danse</h3>
+        <p>Planchers techniques pour l'enseignement et la scène. Des conservatoires de Paris aux Jeux Olympiques 2024.</p>
+        <a href="#contact" class="btn btn-primary">Découvrir</a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img src="assets/images/exterieurs.jpg" alt="Ouvrages extérieurs en bois — terrasse sur pilotis réalisée par SABOIS">
+      <div class="service-card-body">
+        <h3>Ouvrages extérieurs</h3>
+        <p>Terrasses, passerelles et miradors pour faire vivre le bois au grand air, en harmonie avec la nature.</p>
+        <a href="#contact" class="btn btn-primary">Découvrir</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <div class="about-inner">
+    <div class="about-img">
+      <img src="assets/images/portrait.png" alt="Kévin Salou — artisan menuisier, fondateur de SABOIS">
+    </div>
+    <div class="about-text">
+      <h2>Qui suis-je ?</h2>
+      <div class="highlight">
+        De l'ingénierie électro-mécanique à la menuiserie — un virage à 180° par passion du bois.
+      </div>
+      <p>Il y a quelques années, j'étais ingénieur en électro-mécanique. Passionné de technique, de précision, de conception… mais il me manquait le concret, la matière, l'atelier.</p>
+      <p>Alors en 2022, j'ai tout repris à zéro : CAP Menuiserie en candidat libre, construction d'un atelier de 150 m², et un nouveau départ.</p>
+      <p>Depuis, je conçois et fabrique des meubles sur mesure, des aménagements intérieurs, mais aussi des planchers et tapis de danse pour le monde du spectacle — des conservatoires de Paris à Nantes… <strong>jusqu'aux Jeux Olympiques de Paris 2024</strong>, où j'ai posé la piste de danse du Breakdance.</p>
+      <p>Je travaille aussi en pleine nature : miradors, passerelles, terrasses sur pilotis, espaces d'observation, aménagements pour écoles ou marchés publics. Tout ce qui relie l'humain à son environnement à travers le bois.</p>
+      <p>Aujourd'hui, l'entreprise grandit, les chantiers se multiplient, et je suis entouré d'une belle équipe animée par la même passion. Mon moteur ? Le travail du bois, le pilotage d'équipes, et la construction de A à Z.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="section-header">
+    <h2>Parlons de votre projet</h2>
+    <p>Vous avez un projet bois ? Contactez-moi pour en discuter.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>Menuiserie SABOIS</h3>
+      <p class="name">Kévin Salou — Ingénieur Cesi & artisan menuisier</p>
+      <p>📍 7 avenue des Châtaigniers<br>78830 Bonnelles</p>
+      <p>📞 <span class="phone">06 35 42 29 99</span></p>
+      <p>✉️ <a href="mailto:kevin.salou@wanadoo.fr">kevin.salou@wanadoo.fr</a></p>
+      <div class="map">
+        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=1.98,48.61,2.02,48.63&layer=mapnik&marker=48.6185,2.002" title="Carte — Menuiserie SABOIS, Bonnelles"></iframe>
+      </div>
+    </div>
+    <form class="contact-form" action="https://formspree.io/f/CHANGEZ_MOI" method="POST">
+      <h3>Envoyez-moi un message</h3>
+      <div class="form-group">
+        <label for="name">Votre nom</label>
+        <input type="text" id="name" name="name" required placeholder="Jean Dupont">
+      </div>
+      <div class="form-group">
+        <label for="email">Votre email</label>
+        <input type="email" id="email" name="email" required placeholder="jean@exemple.fr">
+      </div>
+      <div class="form-group">
+        <label for="phone">Téléphone</label>
+        <input type="tel" id="phone" name="phone" placeholder="06 00 00 00 00">
+      </div>
+      <div class="form-group">
+        <label for="message">Votre projet</label>
+        <textarea id="message" name="message" required placeholder="Décrivez votre projet : type de réalisation, dimensions, matériaux souhaités..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary form-submit">Envoyer ma demande</button>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© 2026 Menuiserie SABOIS — Tous droits réservés</p>
+</footer>
+
+</body>
+</html>
