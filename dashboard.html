@@ -3,98 +3,93 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SABOIS — Tableau de bord marketing</title>
+<title>Dashboard — Pack Croissance Artisan</title>
 <style>
 :root{--bg:#0a0a0a;--s:#111;--t:#e8e8e8;--t2:#a0a0a0;--a:#c8a45c;--b:rgba(255,255,255,0.06);--r:8px}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--t);padding:2rem}
 h1{text-align:center;font-size:1.8rem;margin-bottom:0.5rem}
 h1 span{color:var(--a)}
-.sub{text-align:center;color:var(--t2);margin-bottom:2.5rem;font-size:0.95rem}
+.sub{text-align:center;color:var(--t2);margin-bottom:2rem;font-size:0.95rem}
 .grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.card{background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:1.5rem}
-.card h3{font-size:0.9rem;color:var(--a);text-transform:uppercase;letter-spacing:1px;margin-bottom:1rem}
+.card{background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:1.5rem;display:flex;flex-direction:column}
+.card h3{font-size:0.9rem;color:var(--a);text-transform:uppercase;letter-spacing:1px;margin-bottom:0.5rem}
 .card .when{font-size:0.75rem;color:var(--t2);margin-bottom:1rem}
-.copy-box{background:var(--bg);border:1px solid var(--b);border-radius:6px;padding:1rem;font-size:0.85rem;color:var(--t2);line-height:1.7;min-height:120px;max-height:200px;overflow-y:auto;white-space:pre-wrap;word-break:break-word}
-.btn{display:block;width:100%;margin-top:1rem;padding:10px;border:none;border-radius:6px;font-weight:600;font-size:0.85rem;cursor:pointer;transition:all 0.2s}
+.copy-box{background:var(--bg);border:1px solid var(--b);border-radius:6px;padding:1rem;font-size:0.85rem;color:var(--t2);line-height:1.7;min-height:120px;max-height:180px;overflow-y:auto;white-space:pre-wrap;word-break:break-word;flex:1}
+.btn{display:block;width:100%;margin-top:0.75rem;padding:10px;border:none;border-radius:6px;font-weight:600;font-size:0.85rem;cursor:pointer;transition:all 0.2s}
 .btn-copy{background:var(--a);color:#0a0a0a}
 .btn-copy:hover{background:#e6c87a}
-.btn-dl{background:var(--s);color:var(--t);border:1px solid var(--b);margin-top:0.5rem}
-.btn-dl:hover{border-color:var(--a)}
 .copied{text-align:center;color:#4caf50;font-size:0.8rem;margin-top:0.5rem;display:none}
-.total{max-width:1000px;margin:3rem auto 0;text-align:center;padding:1.5rem;background:var(--s);border-radius:var(--r);border:1px solid rgba(var(--a),0.2)}
-.total .big{font-size:2.5rem;font-weight:800;color:var(--a)}
-.total p{color:var(--t2);font-size:0.9rem}
-@media(max-width:768px){.grid{grid-template-columns:1fr}}
+.banner{max-width:1000px;margin:2rem auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.banner .stat{background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:1.25rem;text-align:center}
+.stat .num{font-size:1.6rem;font-weight:800;color:var(--a)}
+.stat .lbl{font-size:0.8rem;color:var(--t2);margin-top:0.25rem}
+.discord{max-width:1000px;margin:2rem auto 0;background:var(--s);border:1px solid rgba(88,101,242,0.3);border-radius:var(--r);padding:1.5rem;text-align:center}
+.discord h3{color:#5865f2;margin-bottom:0.5rem}
+.discord .btn-discord{display:inline-block;background:#5865f2;color:#fff;padding:12px 28px;border-radius:6px;text-decoration:none;font-weight:600;margin-top:1rem}
+@media(max-width:768px){.grid,.banner{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<h1>SABOIS <span>— Dashboard</span></h1>
-<p class="sub">Tout ce dont Kévin a besoin chaque semaine. Copier-coller, 10 minutes max.</p>
+<h1>📊 <span>Dashboard</span> — Pack Croissance Artisan</h1>
+<p class="sub">Tout votre marketing en 10 minutes par semaine. Copier-coller, c'est tout.</p>
 
 <div class="grid">
   <div class="card">
-    <h3>📸 Instagram</h3>
-    <div class="when">Chaque lundi — prêt à publier</div>
-    <div class="copy-box" id="insta-content">Chargement...</div>
-    <button class="btn btn-copy" onclick="copyToClipboard('insta-content', this)">📋 Copier</button>
-    <span class="copied" id="insta-ok">✅ Copié !</span>
+    <h3>📸 Post Instagram</h3>
+    <div class="when">Chaque lundi — prêt à copier-coller</div>
+    <div class="copy-box" id="insta">📸 Cette semaine : bibliothèque en chêne massif livrée. Merci à nos clients pour leur confiance ! 🔨
+
+Chaque projet est unique, chaque bois a son histoire. La vôtre commence ici.
+
+#artisanatfrancais #menuiserie #boismassif #faitmain #surmesure</div>
+    <button class="btn btn-copy" onclick="copy('insta',this)">📋 Copier</button>
+    <span class="copied">✅ Copié — postez sur Instagram !</span>
   </div>
 
   <div class="card">
     <h3>📍 Google My Business</h3>
-    <div class="when">Chaque lundi — prêt à publier</div>
-    <div class="copy-box" id="gmb-content">Chargement...</div>
-    <button class="btn btn-copy" onclick="copyToClipboard('gmb-content', this)">📋 Copier</button>
-    <span class="copied" id="gmb-ok">✅ Copié !</span>
+    <div class="when">Chaque lundi — 30 secondes</div>
+    <div class="copy-box" id="gmb">Cette semaine : terrasse en chêne massif posée à [votre ville]. Un projet magnifique — merci à nos clients pour leur confiance !
+
+Vous avez un projet ? Contactez-nous pour un rendez-vous.</div>
+    <button class="btn btn-copy" onclick="copy('gmb',this)">📋 Copier</button>
+    <span class="copied">✅ Copié — publiez sur Google !</span>
   </div>
 
   <div class="card">
-    <h3>🏙️ Page ville SEO</h3>
-    <div class="when">Chaque mercredi — 1 nouvelle ville</div>
-    <div class="copy-box" id="ville-content" style="max-height:100px">Chargement...</div>
-    <button class="btn btn-dl" onclick="downloadVille()">⬇️ Télécharger le HTML</button>
+    <h3>📄 Page ville SEO</h3>
+    <div class="when">Chaque mercredi — nouvelle ville</div>
+    <div class="copy-box" id="ville" style="max-height:100px;font-family:monospace;font-size:0.75rem">Nouvelle page : [Ville] — menuisier
+→ Ajoutez-la à votre site en 2 clics
+→ Disponible dans vos fichiers</div>
+    <button class="btn btn-copy" onclick="copy('ville',this)" style="background:var(--s);color:var(--t);border:1px solid var(--b)">⬇️ Télécharger</button>
+    <span class="copied">✅ Fichier téléchargé !</span>
   </div>
 </div>
 
-<div class="total">
-  <div class="big">⏱️ 10 minutes</div>
-  <p>par semaine pour gérer toute la communication SABOIS</p>
-  <p style="margin-top:1rem;font-size:0.8rem">Lundi : 2 copier-coller (Insta + GMB) · Mercredi : 1 téléchargement · 1er du mois : 1 article</p>
+<div class="banner">
+  <div class="stat"><div class="num">6-10</div><div class="lbl">clients/mois</div></div>
+  <div class="stat"><div class="num">10 min</div><div class="lbl">par semaine</div></div>
+  <div class="stat"><div class="num">0€</div><div class="lbl">de pub/mois</div></div>
+  <div class="stat"><div class="num">52</div><div class="lbl">posts générés/an</div></div>
+</div>
+
+<div class="discord">
+  <h3>💬 Communauté Discord</h3>
+  <p style="color:var(--t2);font-size:0.9rem">Rejoignez d'autres artisans, posez vos questions, partagez vos réussites. Support prioritaire inclus.</p>
+  <a href="https://discord.gg/votre-invitation" class="btn-discord">Rejoindre le serveur</a>
 </div>
 
 <script>
-function copyToClipboard(id, btn) {
-  const el = document.getElementById(id);
-  navigator.clipboard.writeText(el.textContent).then(() => {
-    btn.nextElementSibling.style.display = 'block';
-    setTimeout(() => btn.nextElementSibling.style.display = 'none', 2000);
-  });
+function copy(id, btn) {
+  const txt = document.getElementById(id).textContent.trim();
+  navigator.clipboard.writeText(txt);
+  const ok = btn.nextElementSibling;
+  ok.style.display = 'block';
+  setTimeout(() => ok.style.display = 'none', 2500);
 }
-function downloadVille() {
-  const content = document.getElementById('ville-content').textContent;
-  const blob = new Blob([content], {type:'text/html'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'page-ville.html';
-  a.click();
-}
-
-// Charger le contenu de la semaine
-fetch('/api/this-week.json')
-  .then(r => r.json())
-  .then(d => {
-    document.getElementById('insta-content').textContent = d.instagram || 'Lundi prochain à 9h — le post sera ici.';
-    document.getElementById('gmb-content').textContent = d.gmb || 'Lundi prochain à 9h — le post sera ici.';
-    document.getElementById('ville-content').textContent = d.ville || 'Mercredi prochain à 10h — la page sera ici.';
-  })
-  .catch(() => {
-    document.getElementById('insta-content').textContent = '🎯 Exemple :\n\nCette semaine : dressing sur mesure livré à Chevreuse. Merci à Marie & Laurent pour leur confiance !\n\n#menuisier78 #boismassif #artisanatfrancais';
-    document.getElementById('gmb-content').textContent = '📍 Cette semaine : terrasse en chêne massif posée à Rambouillet. Un projet magnifique avec vue sur la vallée.\n\nVous avez un projet bois ? Contactez-nous : 06 35 42 29 99';
-    document.getElementById('ville-content').textContent = '<!DOCTYPE html>\n<html lang="fr">\n<head>\n<meta charset="UTF-8">\n<title>Menuisier à Chevreuse — SABOIS</title>\n...';
-  });
 </script>
-
 </body>
 </html>
