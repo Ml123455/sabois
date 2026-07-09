@@ -12,20 +12,22 @@
 <meta property="og:title" content="Menuiserie SABOIS | Artisan Menuisier Bonnelles 78">
 <meta property="og:description" content="Agencement, parquet, tapis de danse & ouvrages extérieurs. Kévin Salou — artisan menuisier.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="assets/images/hero-banner.png">
+<meta property="og:url" content="https://ml123455.github.io/sabois/">
+<meta property="og:image" content="https://ml123455.github.io/sabois/og-cover.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@500;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LocalBusiness","name":"Menuiserie SABOIS","description":"Artisan menuisier à Bonnelles — agencement, parquet, tapis de danse, ouvrages extérieurs.","address":{"@type":"PostalAddress","streetAddress":"7 avenue des Châtaigniers","addressLocality":"Bonnelles","postalCode":"78830","addressCountry":"FR"},"telephone":"0635422999","email":"kevin.salou@wanadoo.fr","priceRange":"€€","url":"https://www.sabois.fr"}
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Menuiserie SABOIS","description":"Artisan menuisier à Bonnelles — agencement, parquet, tapis de danse, ouvrages extérieurs.","address":{"@type":"PostalAddress","streetAddress":"7 avenue des Châtaigniers","addressLocality":"Bonnelles","postalCode":"78830","addressCountry":"FR"},"telephone":"0635422999","email":"kevin.salou@wanadoo.fr","priceRange":"€€","url":"https://ml123455.github.io/sabois/"}
 </script>
 <style>
 /* ══════════ SABOIS — DARK PREMIUM ══════════ */
 :root {
-  --bg: #0a0a0a;
-  --surface: #111;
-  --surface2: #1a1a1a;
-  --border: rgba(255,255,255,0.06);
-  --text: #e8e8e8;
-  --text2: #a0a0a0;
-  --text3: #666;
+  --bg: #fafaf7;          /* AVANT: #0a0a0a */
+  --surface: #fff;        /* AVANT: #111 */
+  --surface2: #f8f5ef;    /* AVANT: #1a1a1a */
+  --border: rgba(0,0,0,0.08);  /* AVANT: rgba(255,255,255,0.06) */
+  --text: #1a1a1a;        /* AVANT: #e8e8e8 */
+  --text2: #555;          /* AVANT: #a0a0a0 */
+  --text3: #888;          /* AVANT: #666 */
   --accent: #c8a45c;
   --accent2: #e6c87a;
   --accent-rgb: 200,164,92;
@@ -37,18 +39,19 @@
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body {
-  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
+h1, h2, h3 { font-family: 'Lora', serif; }
 ::selection { background: rgba(var(--accent-rgb),0.3); color:#fff; }
 
 /* ══════════ NAV ══════════ */
 .nav {
   position: fixed; top:0; left:0; right:0; z-index:1000;
-  background: rgba(10,10,10,0.92); backdrop-filter: blur(16px) saturate(180%);
+  background: rgba(255,255,255,0.92); backdrop-filter: blur(16px) saturate(180%);
   border-bottom: 1px solid var(--border);
   transition: var(--transition);
 }
@@ -289,7 +292,7 @@ body {
   .proof-grid { grid-template-columns:1fr 1fr; }
   .form-row { grid-template-columns:1fr; }
   .nav-links { display:none; position:absolute; top:72px; left:0; right:0;
-    background:rgba(10,10,10,0.98); padding:2rem; flex-direction:column; gap:1.5rem;
+    background:rgba(255,255,255,0.98); padding:2rem; flex-direction:column; gap:1.5rem;
     border-bottom:1px solid var(--border);
   }
   .nav-links.open { display:flex; }
@@ -509,13 +512,14 @@ body {
       <p class="name">Kévin Salou — Ingénieur Cesi & artisan menuisier</p>
       <div class="info-row"><span class="info-icon">📍</span> 7 avenue des Châtaigniers<br>78830 Bonnelles</div>
       <div class="info-row"><span class="info-icon">📞</span> <strong style="color:#fff;">06 35 42 29 99</strong></div>
-      <div class="info-row"><span class="info-icon">✉️</span> <a href="mailto:kevin.salou@wanadoo.fr" style="color:var(--accent);text-decoration:none;">kevin.salou@wanadoo.fr</a></div>
+      <div class="info-row"><span class="info-icon">✉️</span> <a href="#contact" style="color:var(--accent);text-decoration:none;">Demander un devis</a></div>
       <div class="contact-map">
         <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=1.97,48.61,2.01,48.63&layer=mapnik&marker=48.6185,2.002" title="Carte SABOIS Bonnelles" loading="lazy"></iframe>
       </div>
     </div>
 
-    <form class="contact-form animate animate-d1" action="https://formspree.io/f/CHANGEZ_MOI" method="POST">
+    <!-- TODO: vérifier ID Formspree Kévin Salou vs BotArmory -->
+    <form class="contact-form animate animate-d1" action="https://formspree.io/f/mjgprkr" method="POST">
       <h3>Décrivez votre projet</h3>
       <div class="form-row">
         <div class="form-group">

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ml123455.github.io/sabois/sitemap.xml
